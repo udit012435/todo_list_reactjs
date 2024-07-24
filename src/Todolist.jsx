@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { FaEdit, FaTrash } from 'react-icons/fa';
 // import React, from {useState}
 
 export const Todolist = () => {
@@ -56,8 +57,8 @@ export const Todolist = () => {
                             <div className="row">
                               <div className="col-md-8 px-4" style={{fontSize:'1.3rem'}}>{data}</div>
                               <div className="col-md-4 text-end">
-                              <button className="btn btn-warning px-2 py-2 mx-1"style={{fontSize: "0.8rem",borderRadius: "0px",}}onClick={() => editActivity(i)}>Edit</button>
-                                <button className="btn btn-danger px-2 py-2 mx-1" style={{ fontSize: ' 0.8rem', borderRadius:'0px'}} onClick={() => removeActivity(i)}>Remove</button>
+                              <button className="btn px-2  mx-1"style={{fontSize: "0.8rem",borderRadius: "0px",}}onClick={() => editActivity(i)}><FaEdit size={22}/></button>
+                                <button className="btn px-2  mx-1" style={{ fontSize: ' 0.8rem', borderRadius:'0px'}} onClick={() => removeActivity(i)}><FaTrash size={22}/></button>
                               </div>
                             </div>
                           </div>
