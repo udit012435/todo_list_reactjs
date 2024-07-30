@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FaEdit, FaTrash } from 'react-icons/fa';
 // import React, from {useState}
 
 export const Todolist = () => {
   const [activity, setActivity] = useState("");
-  const [listData, setlistData] = useState([]);
+  const [listData, setlistData] = useState(getLocalItems());
   function addActivity() {
     setlistData((listData) => {
       const updateList = [...listData, activity]
@@ -31,6 +31,25 @@ export const Todolist = () => {
   function removeAll(){
     setlistData([])
   }
+
+  // add local storage---------------------------------------------
+
+  useEffect(()=>{
+    localStorage.setItem('lists', JSON.stringify(listData))
+  }, [listData]);
+
+  // get localStorage----------------------------------------------
+
+  function getLocalItems () {
+    let list = localStorage.getItem('lists');
+    if(list){
+      return JSON.parse(localStorage.getItem('lists'));
+    }
+    else{
+      return [];
+    }
+  }
+
   return (
     <>
       <div className="container">
