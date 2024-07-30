@@ -38,7 +38,7 @@ export const Todolist = () => {
     localStorage.setItem('lists', JSON.stringify(listData))
   }, [listData]);
 
-  // get localStorage----------------------------------------------
+  // get localStorage---------------------------------------------
 
   function getLocalItems () {
     let list = localStorage.getItem('lists');
